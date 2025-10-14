@@ -1,0 +1,48 @@
+/* Estilo general de la tabla */
+#tabla-personas {
+    background-color: #ffffff;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Encabezado de la tabla */
+#tabla-personas thead th {
+    background-color: #0d6efd;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Celdas del cuerpo */
+#tabla-personas tbody td {
+    text-align: center;
+    vertical-align: middle;
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Fila al pasar el cursor */
+#tabla-personas tbody tr:hover {
+    background-color: #e9f1ff;
+    transition: background-color 0.3s ease;
+}
+
+/* Foto de la persona */
+#tabla-personas img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #dee2e6;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Botones de acción */
+.boton-accion {
+    margin: 0 5px;
+    font-size: 0.9rem;
+}

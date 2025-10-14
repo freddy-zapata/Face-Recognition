@@ -1,0 +1,31 @@
+/* Estilos para la tabla */
+.table img {
+    border-radius: 10px;  /* Bordes redondeados para las fotos */
+    width: 80px; /* Ancho fijo */
+    height: 80px; /* Alto fijo */
+    object-fit: cover; /* Para que la imagen se ajuste correctamente */
+}
+
+/* Modales */
+.modal-header {
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-footer {
+    background-color: #f1f1f1;
+}
+
+.modal-body form input {
+    margin-bottom: 10px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .table {
+        font-size: 0.9rem;
+    }
+    .modal-dialog {
+        max-width: 90%;
+    }
+}
