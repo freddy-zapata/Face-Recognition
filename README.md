@@ -26,11 +26,10 @@ Repository/
 │       └── crud.html
 │    
 ├── Database/ # PostgreSQL database backup
-│   └── backup_faceaccess.sql
+│   └── backup.sql
 │
 ├── Raw Data/ # Test results and datasets
-│   ├── test_results.xlsx
-│   └── recognition_times.xlsx
+│   └── raw_data.xlsx
 │
 ├── README.md # This file
 └── .gitignore # Git exclusions
