@@ -66,7 +66,7 @@ The system was designed using a **three-tier client-server architecture**, consi
 
 | Script | Description |
 |--------|--------------|
-| `capture.py.py` | Creates folders per person, captures face images, and builds the training dataset. |
+| `capture.py` | Creates folders per person, captures face images, and builds the training dataset. |
 | `training.py` | Generates facial encodings and stores them in the database. |
 | `recognition.py` | Performs real-time facial recognition and records access events. |
 
