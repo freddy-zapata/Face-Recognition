@@ -96,7 +96,7 @@ All frontend resources can be found in the [`templates/`](./Face%20Recognition/t
 
 ## 📎 Additional Files
 
-- **Database Backup:** [`Database/backup_faceaccess.sql`](./Database/backup.sql)  
+- **Database Backup:** [`Database/backup.sql`](./Database/backup.sql)  
 - **Test Data:** Results and metrics in [`Raw Data/`](./Raw%20Data/)  
 
 ---
