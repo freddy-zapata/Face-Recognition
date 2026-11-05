@@ -14,6 +14,7 @@ Repository/
 │   ├── training.py # Script for encoding and training
 │   ├── recognition.py # Real-time facial recognition script
 │   ├── database.py # PostgreSQL connection
+│   ├── api.py # Flask REST API (people and access events)
 │   │
 │   ├── static/ # Static assets (JS, CSS, images)
 │   │   ├── crud.js
@@ -29,10 +30,10 @@ Repository/
 │   └── backup.sql
 │
 ├── Raw Data/ # Test results and datasets
-│   └── raw_data.xlsx
+│   └── Raw_data.xlsx
 │
 ├── README.md # This file
-└── .gitignore # Git exclusions
+└── LICENSE # Project license
 ```
 ## ⚙️ System Description
 
@@ -41,6 +42,35 @@ The system was designed using a **three-tier client-server architecture**, consi
 - **Presentation Layer (Frontend):** Developed with **HTML, CSS, JavaScript, and Bootstrap**, providing a responsive web interface for real-time monitoring and user management (CRUD).  
 - **Logic Layer (Backend):** Implemented with **Flask**, exposing a RESTful API that manages communication between the recognition module, the database, and the web interface.  
 - **Data Layer:** Managed with **PostgreSQL**, storing personal data, facial encodings (BYTEA), and access logs including timestamps and images.  
+
+```mermaid
+flowchart TB
+  subgraph P["Presentation layer"]
+    W["index.html: access monitor<br/>crud.html: user management"]
+  end
+  subgraph L["Logic layer on Raspberry Pi 4"]
+    T["capture.py + training.py<br/>PiCamera dataset and encodings"]
+    R["recognition.py<br/>PiCamera real-time recognition"]
+    A["api.py: Flask REST API<br/>/personas, /accesos"]
+  end
+  subgraph D["Data layer"]
+    DB[("PostgreSQL<br/>personas, encodings, accesos")]
+  end
+  W <-- "HTTP, every 5 s" --> A
+  R -- "POST /accesos" --> A
+  A <--> DB
+  T -- "save encodings" --> DB
+  DB -- "load encodings" --> R
+  classDef ok fill:#d1f2dc,stroke:#1a7f37,color:#0b3d1c
+  classDef proto fill:#fff1c7,stroke:#bf8700,color:#4d3700
+  classDef vic fill:#dbeafe,stroke:#0969da,color:#0a2f5c
+  class W vic
+  class T,R,A ok
+  class DB proto
+  style L fill:transparent,stroke:#6e7781
+  style D fill:transparent,stroke:#6e7781
+  style P fill:transparent,stroke:#6e7781
+```
 
 ---
 
@@ -69,6 +99,7 @@ The system was designed using a **three-tier client-server architecture**, consi
 | `capture.py` | Creates folders per person, captures face images, and builds the training dataset. |
 | `training.py` | Generates facial encodings and stores them in the database. |
 | `recognition.py` | Performs real-time facial recognition and records access events. |
+| `api.py` | Flask REST API that manages people (`/personas`) and access events (`/accesos`) and serves the web interface. |
 
 ---
 
