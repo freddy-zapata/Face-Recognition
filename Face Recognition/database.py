@@ -4,7 +4,7 @@ def get_db_connection():
     return psycopg2.connect(
         dbname="FaceRecognition",
         user="postgres",
-        password="123456",
+        password="PASSWORD",
         host="localhost",
         port="5432"
     )
