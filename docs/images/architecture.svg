@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 500" width="1260" height="500" role="img" aria-labelledby="t d" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif">
+<title id="t">Facial recognition access control architecture</title>
+<desc id="d">Three-tier architecture. The web interface exchanges HTTP requests with the Flask API. The PiCamera feeds the recognition and capture scripts. Training saves encodings to PostgreSQL, recognition loads them and posts access events to the API, and the API reads and writes the database.</desc>
+<style>
+:root{--bg:#ffffff;--tx:#1f2328;--mut:#59636e;--line:#d0d7de;--card:#f6f8fa;--zone:#fbfcfd;--blue:#0969da;--grn:#1a7f37;--amb:#9a6700;--gry:#6e7781}
+@media (prefers-color-scheme:dark){:root{--bg:#0d1117;--tx:#e6edf3;--mut:#9198a1;--line:#30363d;--card:#161b22;--zone:#10151c;--blue:#58a6ff;--grn:#3fb950;--amb:#d29922;--gry:#8b949e}}
+.bg{fill:var(--bg)}.t{fill:var(--tx)}.m{fill:var(--mut)}
+.h{font-size:21px;font-weight:700}.b{font-size:15px}.s{font-size:13px;font-weight:700;letter-spacing:1.4px}.l{font-size:14px;font-weight:600}.c{font-size:16px;font-weight:600}
+.frame{fill:none;stroke:var(--line);stroke-width:1.5}
+.zone{fill:var(--zone);stroke:var(--gry);stroke-width:1.5;stroke-dasharray:7 6}
+.card{fill:var(--card);stroke:var(--line);stroke-width:1.5}
+.flow{fill:none;stroke-width:3;stroke-dasharray:9 7;animation:f 1.1s linear infinite}
+.two{fill:none;stroke-width:3}
+.ab{stroke:var(--blue)}.ag{stroke:var(--grn)}.aa{stroke:var(--amb)}.ay{stroke:var(--gry)}
+@keyframes f{to{stroke-dashoffset:-32}}
+@media (prefers-reduced-motion:reduce){.flow{animation:none}}
+</style>
+<defs>
+<marker id="mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f81f7"/></marker>
+<marker id="mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2da44e"/></marker>
+<marker id="ma" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#b58105"/></marker>
+<marker id="my" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7d8590"/></marker>
+</defs>
+<rect class="bg" width="1260" height="500" rx="14"/>
+<rect class="frame" x="16" y="16" width="1228" height="468" rx="14"/>
+<text class="t h" x="40" y="54">Identity access ecosystem with facial recognition</text>
+<text class="m b" x="40" y="78">Three-tier client-server architecture</text>
+
+<!-- Presentation -->
+<rect class="card" x="40" y="102" width="240" height="182" rx="10"/>
+<rect x="40" y="102" width="240" height="6" rx="3" fill="var(--blue)"/>
+<text class="s" fill="var(--blue)" x="58" y="136">PRESENTATION LAYER</text>
+<text class="t h" x="58" y="166">Web interface</text>
+<text class="t b" x="58" y="200">index.html</text>
+<text class="m b" x="58" y="220">Access monitor</text>
+<text class="t b" x="58" y="248">crud.html</text>
+<text class="m b" x="58" y="268">User management</text>
+
+<!-- Camera -->
+<rect class="card" x="40" y="308" width="240" height="152" rx="10"/>
+<rect x="40" y="308" width="240" height="6" rx="3" fill="var(--gry)"/>
+<text class="s" fill="var(--gry)" x="58" y="342">HARDWARE</text>
+<text class="t h" x="58" y="372">PiCamera</text>
+<text class="t b" x="58" y="406">Raspberry Pi 4</text>
+
+<!-- Logic -->
+<rect class="zone" x="420" y="102" width="400" height="358" rx="12"/>
+<text class="s" fill="var(--grn)" x="440" y="130">LOGIC LAYER</text>
+<rect class="card" x="440" y="144" width="360" height="82" rx="10"/>
+<text class="t c" x="460" y="177">api.py</text>
+<text class="m b" x="460" y="203">Flask REST API: /personas, /accesos</text>
+<rect class="card" x="440" y="264" width="360" height="82" rx="10"/>
+<text class="t c" x="460" y="297">recognition.py</text>
+<text class="m b" x="460" y="323">Real-time facial recognition</text>
+<rect class="card" x="440" y="362" width="360" height="82" rx="10"/>
+<text class="t c" x="460" y="395">capture.py + training.py</text>
+<text class="m b" x="460" y="421">Dataset creation and facial encodings</text>
+
+<!-- Data -->
+<rect class="card" x="960" y="102" width="260" height="358" rx="10"/>
+<rect x="960" y="102" width="260" height="6" rx="3" fill="var(--amb)"/>
+<text class="s" fill="var(--amb)" x="978" y="136">DATA LAYER</text>
+<text class="t h" x="978" y="166">PostgreSQL</text>
+<text class="t b" x="978" y="204">personas</text>
+<text class="m b" x="978" y="224">Registered people</text>
+<text class="t b" x="978" y="262">encodings</text>
+<text class="m b" x="978" y="282">Facial encodings</text>
+<text class="t b" x="978" y="320">accesos</text>
+<text class="m b" x="978" y="340">Access events</text>
+
+<!-- Arrows -->
+<text class="l" fill="var(--blue)" x="350" y="170" text-anchor="middle">HTTP, every 5 s</text>
+<path class="two ab" d="M284 185H436" marker-start="url(#mb)" marker-end="url(#mb)"/>
+<path class="flow ay" d="M280 360H350V305H435" marker-end="url(#my)"/>
+<path class="flow ay" d="M280 403H435" marker-end="url(#my)"/>
+<text class="l" fill="var(--grn)" x="640" y="250">POST /accesos</text>
+<path class="flow ag" d="M620 264V231" marker-end="url(#mg)"/>
+<text class="l" fill="var(--amb)" x="890" y="170" text-anchor="middle">read, write</text>
+<path class="two aa" d="M804 185H956" marker-start="url(#ma)" marker-end="url(#ma)"/>
+<text class="l" fill="var(--amb)" x="890" y="290" text-anchor="middle">load encodings</text>
+<path class="flow aa" d="M960 305H805" marker-end="url(#ma)"/>
+<text class="l" fill="var(--amb)" x="890" y="388" text-anchor="middle">save encodings</text>
+<path class="flow aa" d="M800 403H955" marker-end="url(#ma)"/>
+</svg>
