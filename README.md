@@ -52,31 +52,22 @@ The system was designed using a **three-tier client-server architecture**, consi
 
 ## 🔧 Requirements
 
-### Hardware
+**Hardware:**  
+- Raspberry Pi 4 (8 GB RAM)  
+- PiCamera Module v1 or higher  
 
-| Component | Requirement |
-|-----------|-------------|
-| Raspberry Pi 4 | 8 GB RAM |
-| PiCamera Module | v1 or higher |
+**Software:**  
+- Python 3.10+  
+- PostgreSQL 15+  
 
-### Software
-
-| Component | Version |
-|-----------|---------|
-| Python | 3.10+ |
-| PostgreSQL | 15+ |
-
-### Libraries
-
-| Library | Version |
-|---------|---------|
-| Flask | 3.1.0 |
-| OpenCV | 4.11.0 |
-| face_recognition | 1.3.0 |
-| psycopg2 | Not pinned |
-| NumPy | 2.2.4 |
-| imutils | 0.5.4 |
-| Picamera2 | 0.3.24 |
+**Libraries:**  
+- Flask 3.1.0  
+- OpenCV 4.11.0  
+- face_recognition 1.3.0  
+- psycopg2  
+- NumPy 2.2.4  
+- imutils 0.5.4  
+- Picamera2 0.3.24  
 
 ---
 
