@@ -29,6 +29,9 @@ Repository/
 ├── Database/ # PostgreSQL database backup
 │   └── backup.sql
 │
+├── docs/images/ # Architecture diagram
+│   └── architecture.svg
+│
 ├── Raw Data/ # Test results and datasets
 │   └── Raw_data.xlsx
 │
@@ -43,34 +46,7 @@ The system was designed using a **three-tier client-server architecture**, consi
 - **Logic Layer (Backend):** Implemented with **Flask**, exposing a RESTful API that manages communication between the recognition module, the database, and the web interface.  
 - **Data Layer:** Managed with **PostgreSQL**, storing personal data, facial encodings (BYTEA), and access logs including timestamps and images.  
 
-```mermaid
-flowchart TB
-  subgraph P["Presentation layer"]
-    W["index.html: access monitor<br/>crud.html: user management"]
-  end
-  subgraph L["Logic layer on Raspberry Pi 4"]
-    T["capture.py + training.py<br/>PiCamera dataset and encodings"]
-    R["recognition.py<br/>PiCamera real-time recognition"]
-    A["api.py: Flask REST API<br/>/personas, /accesos"]
-  end
-  subgraph D["Data layer"]
-    DB[("PostgreSQL<br/>personas, encodings, accesos")]
-  end
-  W <-- "HTTP, every 5 s" --> A
-  R -- "POST /accesos" --> A
-  A <--> DB
-  T -- "save encodings" --> DB
-  DB -- "load encodings" --> R
-  classDef ok fill:#d1f2dc,stroke:#1a7f37,color:#0b3d1c
-  classDef proto fill:#fff1c7,stroke:#bf8700,color:#4d3700
-  classDef vic fill:#dbeafe,stroke:#0969da,color:#0a2f5c
-  class W vic
-  class T,R,A ok
-  class DB proto
-  style L fill:transparent,stroke:#6e7781
-  style D fill:transparent,stroke:#6e7781
-  style P fill:transparent,stroke:#6e7781
-```
+![Facial recognition access control architecture](docs/images/architecture.svg)
 
 ---
 
@@ -80,16 +56,19 @@ flowchart TB
 - Raspberry Pi 4 (8 GB RAM)  
 - PiCamera Module v1 or higher  
 
-**Software & Libraries:**  
+**Software:**  
 - Python 3.10+  
+- PostgreSQL 15+  
+
+**Libraries:**  
 - Flask 3.1.0  
 - OpenCV 4.11.0  
 - face_recognition 1.3.0  
 - psycopg2  
 - NumPy 2.2.4  
 - imutils 0.5.4  
-- PostgreSQL 15+  
-- Picamera2 0.3.24
+- Picamera2 0.3.24  
+
 ---
 
 ## 🧩 Main Scripts
